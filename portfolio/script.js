@@ -1,5 +1,20 @@
 // Hamburger Menu on Mobile
 
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+
+  if (!preloader) return;
+
+  // Small delay keeps the animation visible and avoids abrupt transitions.
+  setTimeout(() => {
+    preloader.classList.add('hide');
+
+    setTimeout(() => {
+      preloader.remove();
+    }, 700);
+  }, 900);
+});
+
 
 const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
