@@ -4,18 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <!-- CSS Link -->
+    <title>Fast Pro Tech</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts Link -->
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
-
-    <!-- Animation Link -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -25,161 +19,271 @@
     </div>
 
     <header data-aos="fade-down">
-        <h1>
-            <span>Fast</span>
-            <span>Pro </span>
-            <span>Tech</span>
-        </h1>
+        <a href="#home" class="brand" aria-label="Fast Pro Tech Home">
+            <h1>
+                <span>Fast</span>
+                <span>Pro</span>
+                <span>Tech</span>
+            </h1>
+        </a>
 
-        <nav class="nav-menu" aria-label="Primary navigation">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-menu" id="primaryNav" aria-label="Primary navigation">
             <a href="#home">Home</a>
             <a href="#service">Services</a>
-            <a href="portfolio/index.html" target="_blank">Portfolio</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
+            <a href="portfolio/index.html" target="_blank" rel="noopener">Portfolio</a>
+            <button class="btn btn-ghost nav-auth-btn" id="openAuthMenu" type="button">Login / Signup</button>
         </nav>
+
+        <div class="auth-controls">
+            <button class="btn btn-ghost auth-open" id="openAuth" type="button">Login / Signup</button>
+        </div>
     </header>
 
     <main>
-        <!-- Section One -->
-
-        <section class="section-home">
+        <section class="section-home" id="home">
             <div class="detail-section" data-aos="fade-right">
+                <p class="eyebrow">Data Processing Associate</p>
                 <h2>Welcome to Fast Pro Tech</h2>
-                <p>At Fast Pro Tech, we provide fast, reliable, and accurate data processing solutions for businesses and individuals. 
-                    Our goal is to simplify your data so you can focus on what matters most — growing your business.
+                <p>
+                    At Fast Pro Tech, we provide fast, reliable, and accurate data processing solutions for businesses and individuals.
+                    Our goal is to simplify your data so you can focus on what matters most growing your business.
                 </p>
                 <p class="choose">Why Choose Us?</p>
                 <ul>
-                    <span><li>⚡ Fast & Accurate Data Processing</li></span>
-                    <span><li>🔒 100% Data Confidentiality</li></span>
-                    <span><li>💼 Professional Team</li></span>
-                    <span><li>⏱️ On-Time Delivery</li></span>
+                    <li>Fast and accurate data processing</li>
+                    <li>100% data confidentiality</li>
+                    <li>Professional and trained team</li>
+                    <li>Consistent on-time delivery</li>
                 </ul>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Book Consultation</a>
+                    <a href="#service" class="btn btn-ghost">Explore Services</a>
+                </div>
             </div>
             <div class="profile" data-aos="fade-left">
-                <img src="assets/taimoor.png" alt="Taimoor" data-aos="fade-right">
+                <img src="assets/taimoor.png" alt="Team member profile image" data-aos="zoom-in">
             </div>
         </section>
 
-        <!-- Section Two -->
-
         <section class="section-service">
-            <h2  data-aos="fade-down" id="service"><span>Our</span> <span>Services</span></h2>
+            <h2 data-aos="fade-down" id="service"><span>Our</span> <span>Services</span></h2>
             <div class="service-card">
-               <div class="bg-card" data-aos="fade-right">
-                  <div class="card">
-                    <h3>Data Collection</h3>
-                    <p>Gather accurate and reliable data from multiple sources for better decision-making.</p>
-                  </div>
-               </div> 
-                
-               <div class="bg-card" data-aos="fade-down">
+                <div class="bg-card" data-aos="fade-up">
+                    <div class="card">
+                        <h3>Data Collection</h3>
+                        <p>Gather accurate and reliable data from multiple sources for better decision-making.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="50">
                     <div class="card">
                         <h3>List Building</h3>
                         <p>Create targeted contact lists or datasets tailored to your business needs.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-left">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
                         <h3>Data Research</h3>
                         <p>Analyze trends, patterns, and insights to support strategic planning.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-right">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="card">
                         <h3>Data Scraping</h3>
                         <p>Extract structured data from websites efficiently and ethically.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-down">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card">
                         <h3>Data Visualization</h3>
                         <p>Transform raw data into clear charts, graphs, and dashboards.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-left">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="card">
                         <h3>CRM Tools</h3>
                         <p>Manage customer relationships efficiently and streamline workflows.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-right">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="card">
                         <h3>Online Research</h3>
                         <p>Gather accurate information from the web to support smart decisions.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-down">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="350">
                     <div class="card">
                         <h3>Cold Lead Generation</h3>
                         <p>Identify and reach potential clients to grow your sales pipeline effectively.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-left">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="card">
                         <h3>Cold Calling</h3>
                         <p>Engage prospects directly to introduce your products and generate leads efficiently.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-right">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="450">
                     <div class="card">
                         <h3>Data Extraction Tools</h3>
                         <p>Quickly gather and organize data from multiple sources for analysis and insights.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-down">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="card">
                         <h3>High Volume Data Entry</h3>
                         <p>Accurately input large amounts of data efficiently while maintaining quality and consistency.</p>
                     </div>
-               </div>
+                </div>
 
-               <div class="bg-card" data-aos="fade-left">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="550">
                     <div class="card">
                         <h3>MS Excel (Advanced)</h3>
                         <p>Analyze, visualize, and manage data using advanced Excel functions and tools efficiently.</p>
                     </div>
-               </div>
+                </div>
 
-                <div class="bg-card" data-aos="fade-right">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="card">
                         <h3>PDF to Excel</h3>
                         <p>Convert PDF data into Excel sheets quickly and accurately for easy analysis.</p>
                     </div>
-               </div>
+                </div>
 
-                <div class="bg-card" data-aos="fade-down">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="650">
                     <div class="card">
                         <h3>Google Workspace</h3>
-                        <p>Collaborate and manage work efficiently using Google’s suite of productivity tools.</p>
+                        <p>Collaborate and manage work efficiently using Google's suite of productivity tools.</p>
                     </div>
-               </div>
+                </div>
 
-                <div class="bg-card" data-aos="fade-left">
+                <div class="bg-card" data-aos="fade-up" data-aos-delay="700">
                     <div class="card">
-                        <h3>Tools & Technologies</h3>
+                        <h3>Tools and Technologies</h3>
                         <p>Utilize modern tools and technologies to streamline data processes.</p>
                     </div>
-               </div>
+                </div>
             </div>
         </section>
 
+        <section class="section-about" id="about">
+            <div class="about-card" data-aos="fade-right">
+                <h2>About Fast Pro Tech</h2>
+                <p>
+                    We help startups, agencies, and growing businesses transform raw data into business-ready insights.
+                    Our workflow combines speed, quality control, and secure delivery.
+                </p>
+                <div class="stats-grid">
+                    <article>
+                        <h3>98%</h3>
+                        <p>Client Satisfaction</p>
+                    </article>
+                    <article>
+                        <h3>24/7</h3>
+                        <p>Support Availability</p>
+                    </article>
+                </div>
+            </div>
+            <div class="about-card about-checklist" data-aos="fade-left">
+                <h3>How We Work</h3>
+                <ul>
+                    <li>Requirement understanding and source planning</li>
+                    <li>Clean execution with quality checkpoints</li>
+                    <li>Transparent reports and export-ready delivery</li>
+                    <li>Continuous improvements based on feedback</li>
+                </ul>
+            </div>
+        </section>
 
+        <section class="section-contact" id="contact">
+            <div class="contact-box" data-aos="zoom-in">
+                <h2>Let's build your next data workflow</h2>
+                <p>Share your requirements and get a quick response from our team.</p>
+                <form class="contact-form" action="#" method="post">
+                    <label>
+                        Full Name
+                        <input type="text" name="name" placeholder="Your name" required>
+                    </label>
+                    <label>
+                        Email Address
+                        <input type="email" name="email" placeholder="you@example.com" required>
+                    </label>
+                    <label>
+                        Project Details
+                        <textarea name="message" rows="5" placeholder="Tell us what you need" required></textarea>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Send Request</button>
+                </form>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
+    </footer>
+
+    <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-labelledby="authModalTitle">
+        <div class="auth-panel" role="document">
+            <button type="button" class="auth-close" id="closeAuth" aria-label="Close authentication">x</button>
+            <h2 id="authModalTitle">Welcome Back</h2>
+            <p>Join Fast Pro Tech and manage your service requests with ease.</p>
+
+            <div class="auth-tabs" role="tablist" aria-label="Auth tabs">
+                <button type="button" class="tab-btn is-active" id="loginTab" data-target="loginForm" role="tab" aria-selected="true">Login</button>
+                <button type="button" class="tab-btn" id="signupTab" data-target="signupForm" role="tab" aria-selected="false">Sign Up</button>
+            </div>
+
+            <form id="loginForm" class="auth-form is-active" novalidate>
+                <label>
+                    Email Address
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                </label>
+                <label>
+                    Password
+                    <input type="password" id="loginPassword" placeholder="Enter password" minlength="6" required>
+                </label>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+            <form id="signupForm" class="auth-form" novalidate>
+                <label>
+                    Full Name
+                    <input type="text" id="signupName" placeholder="Your full name" required>
+                </label>
+                <label>
+                    Email Address
+                    <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                </label>
+                <label>
+                    Password
+                    <input type="password" id="signupPassword" placeholder="Create password" minlength="6" required>
+                </label>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+
+            <p class="auth-message" id="authMessage" aria-live="polite"></p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
 </body>
 
 </html>
