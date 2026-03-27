@@ -154,11 +154,11 @@ header h1 {
 }
 
 header h1 span:nth-child(1) {
-    color: var(--sun);
+    color: var(--mint);
 }
 
 header h1 span:nth-child(2) {
-    color: var(--pearl);
+    color: var(--mint);
 }
 
 header h1 span:nth-child(3) {
@@ -248,20 +248,6 @@ main {
     gap: clamp(20px, 4vw, 48px);
 }
 
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    width: fit-content;
-    margin-bottom: 14px;
-    padding: 7px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mint);
-}
 
 .detail-section h2 {
     font-size: clamp(2.15rem, 4.4vw, 4rem);
