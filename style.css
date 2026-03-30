@@ -33,7 +33,7 @@ body {
     background:
         radial-gradient(circle at 12% 12%, rgba(120, 240, 196, 0.2), transparent 34%),
         radial-gradient(circle at 84% 20%, rgba(255, 190, 59, 0.22), transparent 38%),
-        linear-gradient(130deg, #06101e 0%, #122645 40%, #0d3f5f 100%);
+        linear-gradient(130deg, #06101e 0%, #061936 40%, #061936 100%);
     background-size: 140% 140%;
     animation: bg-pan 16s ease infinite;
 }
@@ -67,6 +67,10 @@ body::after {
     bottom: -16vmax;
     background: #ffcd65;
     animation: float-b 11s ease-in-out infinite;
+}
+
+canvas {
+    display: block;
 }
 
 .page-loader {
@@ -124,6 +128,7 @@ body::after {
 header {
     width: min(1120px, calc(100% - 32px));
     position: fixed;
+    height: 100px;
     left: 0;
     right: 0;
     top: 16px;
@@ -141,28 +146,27 @@ header {
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
 }
 
+
 .brand {
     text-decoration: none;
 }
 
-header h1 {
+header a {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 4px;
-    font-family: "Dancing Script", cursive;
+    font-family: sans-serif;
     font-size: clamp(2rem, 2.9vw, 2.8rem);
 }
 
-header h1 span:nth-child(1) {
-    color: var(--mint);
+header .logo {
+    margin-top: 20px;
 }
 
-header h1 span:nth-child(2) {
-    color: var(--mint);
-}
-
-header h1 span:nth-child(3) {
-    color: var(--mint);
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .menu-toggle {
@@ -241,19 +245,140 @@ main {
 }
 
 .section-home {
-    min-height: min(840px, 100vh);
+    min-height: min(500px, 100vh);
     display: grid;
-    grid-template-columns: 1.08fr 0.92fr;
+    grid-template-columns: 1fr;
     align-items: center;
     gap: clamp(20px, 4vw, 48px);
 }
 
+#web {
+    position: absolute;
+    width: 100%;
+    height: clamp(340px, 52vh, 560px);
+    border-radius: 30px;
+}
+
+.profile {
+    animation: moves 1s infinite alternate ease-in-out, moveUp 3.2s ease-out forwards;
+}
+
+
+
+/* @keyframes moves {
+    0% {
+        transform: translateY(15px);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+} */
+
+@keyframes moveUp {
+    0% {
+        opacity: 0;
+        transform: translate(0, 120px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(0, -20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-550px 0);
+    }
+}
+
+.profile h2 {
+    width: 5%;
+    font-size: 40px;
+    position: absolute;
+    left: 310px;
+    top: 110px;
+    line-height: 100px;
+    color: #06739e;
+}
+
+.profile h2 span{
+    font-size: 60px;
+}
+
+
+.profile img {
+    position: absolute;
+    width: 35%;
+    height: 650px;
+    /* animation: moveUpThenRight 3.2s ease-out forwards; */
+}
+/* @keyframes moveUpThenRight {
+    0% {
+        opacity: 0;
+        transform: translate(0, 120px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(0, -550px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(400px, -550px);
+    }
+} */
+
+.detail-section {
+    margin-left: 490px;
+}
 
 .detail-section h2 {
+    display: none;
     font-size: clamp(2.15rem, 4.4vw, 4rem);
     line-height: 1.05;
     margin-bottom: 16px;
+    white-space: nowrap;
+    color: var(--text-main);
 }
+
+.detail-section > span {
+    display: block;
+    opacity: 0;
+    /* transform: translateY(18px); */
+    animation: showContent 750ms cubic-bezier(0.2, 0.72, 0.22, 1) forwards;
+}
+
+.detail-section > span:nth-child(1) {
+    animation-delay: 1500ms;
+}
+
+.detail-section > span:nth-child(2) {
+    animation-delay: 1700ms;
+}
+
+.detail-section > span:nth-child(3) {
+    animation-delay: 1900ms;
+}
+
+.detail-section > span:nth-child(4) {
+    animation-delay: 2100ms;
+}
+
+.detail-section > span:nth-child(5) {
+    animation-delay: 2300ms;
+}
+
+@keyframes showContent {
+    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
 
 .detail-section p {
     font-size: clamp(1rem, 1.25vw, 1.12rem);
@@ -334,37 +459,6 @@ main {
     border-color: rgba(255, 255, 255, 0.24);
 }
 
-.profile {
-    position: relative;
-    min-height: 510px;
-    border-radius: 34px;
-    border: 1px solid var(--line);
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 90% 10%, rgba(120, 240, 196, 0.2), transparent 42%),
-        linear-gradient(145deg, rgba(9, 23, 44, 0.8), rgba(16, 52, 86, 0.7));
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38);
-    animation: float-card 4s ease-in-out infinite alternate;
-}
-
-.profile::before {
-    content: "";
-    position: absolute;
-    inset: 16px;
-    border-radius: 24px;
-    border: 1px dashed rgba(255, 255, 255, 0.18);
-    pointer-events: none;
-}
-
-.profile img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-}
-
 .section-service {
     margin-top: 86px;
 }
@@ -429,7 +523,8 @@ main {
 }
 
 .bg-card:hover .card {
-    transform: translateY(-3px);
+    transform: rotate(10deg);
+    cursor: pointer;
 }
 
 .card h3 {
@@ -747,6 +842,18 @@ footer {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .detail-section > span {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}
+
 @media (max-width: 1024px) {
     main {
         padding-top: 116px;
@@ -758,9 +865,8 @@ footer {
         gap: 26px;
     }
 
-    .profile {
-        min-height: 460px;
-        order: -1;
+    #web {
+        height: clamp(260px, 44vh, 420px);
     }
 
     .service-card {
@@ -818,10 +924,6 @@ footer {
         display: none;
     }
 
-    .profile {
-        min-height: 400px;
-    }
-
     .stats-grid {
         grid-template-columns: 1fr;
     }
@@ -841,10 +943,6 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .profile {
-        min-height: 340px;
-    }
-
     .hero-actions {
         flex-direction: column;
     }
@@ -855,5 +953,9 @@ footer {
 
     .contact-box {
         padding: 18px;
+    }
+
+    .detail-section h2 {
+        font-size: clamp(1.45rem, 7.2vw, 2.1rem);
     }
 }

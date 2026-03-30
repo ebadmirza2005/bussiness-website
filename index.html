@@ -20,14 +20,15 @@
 
     <header data-aos="fade-down">
         <a href="#home" class="brand" aria-label="Fast Pro Tech Home">
-            <h1>
-                <span>Faaz</span>
-                <span>Pro</span>
-                <span>Tech</span>
-            </h1>
+            <img class="logo" src="assets/logo.png" alt="Faaz Pro Tech logo" width="350px" height="300px">
+            <!-- <video autoplay muted loop>
+                <source src="assets/logo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
         </a>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="primaryNav">
             <span></span>
             <span></span>
             <span></span>
@@ -49,26 +50,46 @@
 
     <main>
         <section class="section-home" id="home">
-            <div class="detail-section" data-aos="fade-right">
-                <h2>Welcome to <span style="color: #78f0c4;">Faaz Pro Tech</span></h2>
-                <p>
-                    At Fast Pro Tech, we provide fast, reliable, and accurate data processing solutions for businesses and individuals.
-                    Our goal is to simplify your data so you can focus on what matters most growing your business.
-                </p>
-                <p class="choose">Why Choose Us?</p>
-                <ul>
-                    <li>Fast and accurate data processing</li>
-                    <li>100% data confidentiality</li>
-                    <li>Professional and trained team</li>
-                    <li>Consistent on-time delivery</li>
-                </ul>
-                <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">Book Consultation</a>
-                    <a href="#service" class="btn btn-ghost">Explore Services</a>
-                </div>
+            <canvas id="web"></canvas>
+            <div class="profile">
+                <img src="assets/brain.png" alt="Profile image of Faaz Pro Tech founder" width="400px" height="400px">
+                <h2>
+                    <span>F</span>aaz 
+                    <span>P</span>ro
+                    <span>T</span>ech
+                </h2>
             </div>
-            <!-- <div class="profile" data-aos="fade-left">
-                <img src="assets/taimoor.png" alt="Team member profile image" data-aos="zoom-in">
+            <div class="detail-section" data-aos="fade-left">
+                <span>
+                    <!-- <h2>Welcome to <span style="color: #06739e;">Faaz Pro Tech</span></h2> -->
+                </span>
+                <span>
+                    <p>
+                        At Fast Pro Tech, we provide fast, reliable, and accurate data processing solutions for
+                        businesses and individuals.
+                        Our goal is to simplify your data so you can focus on what matters most growing your business.
+                    </p>
+                </span>
+                <span>
+                    <p class="choose">Why Choose Us?</p>
+                </span>
+                <span>
+                    <ul>
+                        <li>Fast and accurate data processing</li>
+                        <li>100% data confidentiality</li>
+                        <li>Professional and trained team</li>
+                        <li>Consistent on-time delivery</li>
+                    </ul>
+                </span>
+                <span>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Book Consultation</a>
+                        <a href="#service" class="btn btn-ghost">Explore Services</a>
+                    </div>
+                </span>
+            </div>
+            <!-- <div class="profile">
+                <img src="assets/person.png" alt="Profile image of Faaz Pro Tech founder" width="400px" height="400px">
             </div> -->
         </section>
 
@@ -148,7 +169,8 @@
                 <div class="bg-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="card">
                         <h3>High Volume Data Entry</h3>
-                        <p>Accurately input large amounts of data efficiently while maintaining quality and consistency.</p>
+                        <p>Accurately input large amounts of data efficiently while maintaining quality and consistency.
+                        </p>
                     </div>
                 </div>
 
@@ -235,7 +257,9 @@
     </main>
 
     <footer>
-        <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
+     <marquee behavior="scroll" direction="left">
+            <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
+        </marquee>
     </footer>
 
     <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-labelledby="authModalTitle">
@@ -245,8 +269,10 @@
             <p>Join Fast Pro Tech and manage your service requests with ease.</p>
 
             <div class="auth-tabs" role="tablist" aria-label="Auth tabs">
-                <button type="button" class="tab-btn is-active" id="loginTab" data-target="loginForm" role="tab" aria-selected="true">Login</button>
-                <button type="button" class="tab-btn" id="signupTab" data-target="signupForm" role="tab" aria-selected="false">Sign Up</button>
+                <button type="button" class="tab-btn is-active" id="loginTab" data-target="loginForm" role="tab"
+                    aria-selected="true">Login</button>
+                <button type="button" class="tab-btn" id="signupTab" data-target="signupForm" role="tab"
+                    aria-selected="false">Sign Up</button>
             </div>
 
             <form id="loginForm" class="auth-form is-active" novalidate>
@@ -256,8 +282,8 @@
                 </label>
                 <label>
                     Password
-                    <input type="password" id="loginPassword" placeholder="Enter password" minlength="6" required>
                 </label>
+                    <input type="password" id="loginPassword" placeholder="Enter password" minlength="6" required>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
 
@@ -276,7 +302,7 @@
                 </label>
                 <button type="submit" class="btn btn-primary">Create Account</button>
             </form>
-
+         
             <p class="auth-message" id="authMessage" aria-live="polite"></p>
         </div>
     </div>

@@ -13,9 +13,6 @@ const signupTab = document.getElementById("signupTab");
 const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
 const authMessage = document.getElementById("authMessage");
-const authUser = document.getElementById("authUser");
-const authUsername = document.getElementById("authUsername");
-const logoutBtn = document.getElementById("logoutBtn");
 
 const USERS_KEY = "fastprotech_users";
 const SESSION_KEY = "fastprotech_current_user";
@@ -104,24 +101,14 @@ const setMessage = (message, isError = false) => {
 
 const updateAuthUI = () => {
     const currentUser = localStorage.getItem(SESSION_KEY);
-    const hasValidUser = currentUser && currentUser !== "Guest";
+    const hasValidUser = Boolean(currentUser && currentUser !== "Guest");
 
-    if (hasValidUser && authUser && authUsername) {
-        authUsername.textContent = currentUser;
-        authUser.hidden = false;
-        if (openAuth) {
-            openAuth.hidden = true;
-        }
-    } else {
-        if (currentUser === "Guest") {
-            clearSessionUser();
-        }
-        if (authUser) {
-            authUser.hidden = true;
-        }
-        if (openAuth) {
-            openAuth.hidden = false;
-        }
+    if (currentUser === "Guest") {
+        clearSessionUser();
+    }
+
+    if (openAuth) {
+        openAuth.hidden = hasValidUser;
     }
 };
 
@@ -265,11 +252,119 @@ if (loginForm) {
     });
 }
 
-if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-        clearSessionUser();
-        updateAuthUI();
-    });
-}
-
 updateAuthUI();
+
+// Spider web animation for side panel canvas
+const canvas = document.getElementById("web");
+
+if (canvas) {
+        const ctx = canvas.getContext("2d");
+        const particles = [];
+        const particleCount = 70;
+        const linkDistance = 110;
+
+        if (ctx) {
+                const clampToCanvas = (value, max) => Math.min(Math.max(value, 0), max);
+
+                const setCanvasSize = () => {
+                        const ratio = window.devicePixelRatio || 1;
+                        const rect = canvas.getBoundingClientRect();
+                        const width = Math.max(Math.floor(rect.width), 1);
+                        const height = Math.max(Math.floor(rect.height), 1);
+
+                        canvas.width = Math.floor(width * ratio);
+                        canvas.height = Math.floor(height * ratio);
+                        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+                        particles.forEach((particle) => {
+                                particle.x = clampToCanvas(particle.x, width);
+                                particle.y = clampToCanvas(particle.y, height);
+                        });
+                };
+
+                class Particle {
+                        constructor() {
+                                this.reset();
+                        }
+
+                        reset() {
+                                this.x = Math.random() * canvas.clientWidth;
+                                this.y = Math.random() * canvas.clientHeight;
+                                this.vx = Math.random() * 0.8 - 0.4;
+                                this.vy = Math.random() * 0.8 - 0.4;
+                        }
+
+                        move() {
+                                const width = canvas.clientWidth;
+                                const height = canvas.clientHeight;
+
+                                this.x += this.vx;
+                                this.y += this.vy;
+
+                                if (this.x <= 0 || this.x >= width) {
+                                        this.vx *= -1;
+                                        this.x = clampToCanvas(this.x, width);
+                                }
+
+                                if (this.y <= 0 || this.y >= height) {
+                                        this.vy *= -1;
+                                        this.y = clampToCanvas(this.y, height);
+                                }
+                        }
+
+                        draw() {
+                                ctx.beginPath();
+                                ctx.arc(this.x, this.y, 1.8, 0, Math.PI * 2);
+                                ctx.fillStyle = "rgba(255, 240, 214, 0.95)";
+                                ctx.fill();
+                        }
+                }
+
+                for (let i = 0; i < particleCount; i += 1) {
+                        particles.push(new Particle());
+                }
+
+                const drawConnections = () => {
+                        for (let i = 0; i < particles.length; i += 1) {
+                                for (let j = i + 1; j < particles.length; j += 1) {
+                                        const dx = particles[i].x - particles[j].x;
+                                        const dy = particles[i].y - particles[j].y;
+                                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                                        if (distance < linkDistance) {
+                                                const alpha = 1 - distance / linkDistance;
+                                                ctx.beginPath();
+                                                ctx.moveTo(particles[i].x, particles[i].y);
+                                                ctx.lineTo(particles[j].x, particles[j].y);
+                                                ctx.strokeStyle = `rgba(164, 220, 255, ${0.42 * alpha})`;
+                                                ctx.lineWidth = 0.9;
+                                                ctx.stroke();
+                                        }
+                                }
+                        }
+                };
+
+                const animate = () => {
+                        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+                        particles.forEach((particle) => {
+                                particle.move();
+                                particle.draw();
+                        });
+
+                        drawConnections();
+                        requestAnimationFrame(animate);
+                };
+
+                setCanvasSize();
+                animate();
+
+                const resizeHandler = () => setCanvasSize();
+                window.addEventListener("resize", resizeHandler);
+
+                if (window.ResizeObserver) {
+                        const observer = new ResizeObserver(() => setCanvasSize());
+                        observer.observe(canvas);
+                }
+        }
+}
